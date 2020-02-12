@@ -8,8 +8,10 @@ int main()
 	setenv("TZ", "America/Dawson", 1);
 
 	struct tm *sp;
+	char str[100];
 	time_t now = time(NULL);
-	printf("%s", ctime(&now));
+	ctime_r(&now, str, 100);
+	printf("%s	", str);
 	sp = localtime(&now);
 	printf("%d/%d/%02d %d:%02d %s\n",
 	sp->tm_mon + 1, sp->tm_mday,
