@@ -17,7 +17,7 @@ int main()
 	lock.l_whence = SEEK_SET;
 	lock.l_start = 0;
 	lock.l_len = 0;
-	if (fcntl(fd, F_SETLK, &lock) == -1)
+	if (fcntl(fileno(fd), F_SETLK, &lock) == -1)
 	{
 		if ((errno == EACCES) || (errno == EAGAIN)) 
 		{
@@ -32,6 +32,6 @@ int main()
 	}
 	system("nano lab_8.file");
 	lock.l_type = F_UNLCK; /* unlock file */
-	fcntl(fd, F_SETLK, &lock);
+	fcntl(fileno(fd), F_SETLK, &lock);
 	return 0;
 }
