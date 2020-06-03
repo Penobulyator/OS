@@ -7,7 +7,7 @@
 int main()
 {
 	struct flock lock;
-	FILE* fd = fopen("lab_8.file", "r+");
+	FILE	* fd = fopen("lab_8.file", "r+");
 	if (fd == NULL)
 	{
 		printf("Can't open file\n");
@@ -27,7 +27,7 @@ int main()
 		{
 			printf("Unknown error\n");
 		}
-		perror("");
+		perror("lab_8.file");
 		exit(2);
 	}
 	system("nano lab_8.file");
